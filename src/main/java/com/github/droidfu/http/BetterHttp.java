@@ -241,5 +241,18 @@ public class BetterHttp {
         Scheme _scheme = new Scheme(scheme, PlainSocketFactory.getSocketFactory(), port);
         httpClient.getConnectionManager().getSchemeRegistry().register(_scheme);
     }
+    
+    
+    /**
+     * Sets the default user agent to a string of your choice
+     * 
+     * @param value
+     *            the new user agent string
+     * 
+     */
+    public static void setDefaultUserAgent(String value) {
+        HttpParams httpParams = httpClient.getParams();
+        HttpProtocolParams.setUserAgent(httpParams, value);
+    }
 
 }
